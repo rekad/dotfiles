@@ -89,10 +89,6 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
-# PSQL
-export PGHOST=localhost
-export PGUSER=postgres
-
 # use vim as editor
 export EDITOR=vim
 
@@ -104,7 +100,3 @@ unset LSCOLORS
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
 DEFAULT_USER=patrick
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# source origami specific settings
-source ./.origami
