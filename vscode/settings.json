@@ -31,5 +31,8 @@
     },
     "workbench.colorTheme": "Tomorrow Night",
     "extensions.ignoreRecommendations": false,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "files.associations": {
+        "*.sql": "pgsql"
+    }
 }

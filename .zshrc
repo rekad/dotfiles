@@ -83,6 +83,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
