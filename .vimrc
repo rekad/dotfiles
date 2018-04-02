@@ -3,7 +3,7 @@
 
 set showmatch
 set encoding=utf8
-set noswapfile
+"set noswapfile
 set laststatus=2
 set autoread
 
@@ -24,5 +24,8 @@ let g:netrw_winsize = 75
 call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go'
+Plug 'Ardakilic/vim-tomorrow-night-theme'
 
 call plug#end()
+
+colorscheme Tomorrow-Night
