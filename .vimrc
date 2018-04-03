@@ -1,3 +1,14 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'fatih/vim-go'
+Plug 'chriskempson/base16-vim'
+
+call plug#end()
+
+"https://github.com/chriskempson/base16-iterm2/blob/master/base16-tomorrownight.dark.itermcolors
+"https://github.com/chriskempson/base16-vim
+colorscheme base16-tomorrow-night
+
 :imap jj <Esc>
 :set number
 
@@ -66,12 +77,3 @@ endf
 augroup NetrwGroup
   autocmd! BufEnter * call NormalizeWidths()
 augroup END
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'fatih/vim-go'
-Plug 'Ardakilic/vim-tomorrow-night-theme'
-
-call plug#end()
-
-colorscheme Tomorrow-Night
