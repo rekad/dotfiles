@@ -7,15 +7,12 @@
 brew tap caskroom/cask
 brew tap caskroom/versions
 
-# Install tmux
+brew install vim
 brew install tmux
 # Required for copy/paste in tmux
 brew install reattach-to-user-namespace
-
-# Install Spectacle Window Manager
+brew install cmake
 brew cask install spectacle
-
-# Install iTerm2 Nighly Build
 brew cask install iterm2-nightly
 
 # Install Visual Studio Code
@@ -35,3 +32,4 @@ brew install go
 
 # Mac Settings
 defaults write com.apple.Finder AppleShowAllFiles true
+

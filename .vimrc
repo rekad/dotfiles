@@ -3,6 +3,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go'
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --go-completer' }
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript.jsx', 'javascript'] }
+Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
+Plug 'mattn/emmet-vim'
+Plug 'ap/vim-buftabline'
 
 call plug#end()
 
@@ -22,14 +28,33 @@ set autoread
 set clipboard=unnamed
 set autowrite
 
+set autochdir
 set wildmenu
+set wildignore+=*/node_modules/*
 set showmatch
 
 set incsearch
 "set hlsearch
 
+"buftabline settings
+let g:buftabline_indicators = 1 
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprev<CR>
+
 "CtrlP settings
 let g:ctrlp_show_hidden = 1
+
+"YouCompleteMe settings
+set completeopt-=preview
+let g:ycm_add_preview_to_completeopt = 0
+
+"Emmet settings
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
+autocmd FileType html,css,javascript.jsx EmmetInstall
 
 "Split Settings
 nnoremap <C-J> <C-W><C-J>
@@ -114,8 +139,8 @@ autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 
 "Syntax Highlighting
-let g:go_highlight_variable_assignments = 1
-let g:go_highlight_variable_declarations = 1
+"let g:go_highlight_variable_assignments = 1
+"let g:go_highlight_variable_declarations = 1
 let g:go_highlight_format_strings = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
