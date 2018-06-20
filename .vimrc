@@ -62,4 +62,5 @@ set splitright
 "NERDTree
 noremap <Leader><Tab> :NERDTreeToggle<CR>
 noremap <Leader>x :bp\|bd #<CR>
+noremap <Leader>f :NERDTreeFind<CR>
 
