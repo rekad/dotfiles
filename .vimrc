@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nixprime/cpsm', { 'do': 'env PY3=ON ./install.sh' }
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript.jsx', 'javascript'] }
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
@@ -12,6 +13,7 @@ Plug 'w0rp/ale'
 Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 
 Plug 'davidhalter/jedi-vim'
 Plug 'mindriot101/vim-yapf'
@@ -50,6 +52,11 @@ nnoremap <S-Tab> :bprev<CR>
 
 "CtrlP settings
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
 
 "Split Settings
 nnoremap <C-J> <C-W><C-J>
