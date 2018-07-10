@@ -1,20 +1,32 @@
 call plug#begin('~/.vim/plugged')
-
+"colors
 Plug 'chriskempson/base16-vim'
+
+"searching
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nixprime/cpsm', { 'do': 'env PY3=ON ./install.sh' }
+Plug 'mileszs/ack.vim'
+
+"javascript
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript.jsx', 'javascript'] }
+Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
+Plug 'mattn/emmet-vim'
 
-Plug 'editorconfig/editorconfig-vim'
+"general
+Plug 'tpope/vim-surround'
+Plug 'Valloric/YouCompleteMe'
 Plug 'w0rp/ale'
-
+Plug 'editorconfig/editorconfig-vim'
 Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'jiangmiao/auto-pairs'
 
+
+"python
 Plug 'davidhalter/jedi-vim'
 Plug 'mindriot101/vim-yapf'
 call plug#end()
@@ -29,8 +41,12 @@ colorscheme base16-tomorrow-night
 noremap <Leader>s :w<CR>
 
 syntax on
-set ts=4 sw=4
-set showmatch
+
+"tab settings
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
 set encoding=utf8
 "set noswapfile
 set laststatus=2
@@ -57,6 +73,14 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
+
+"ack settings
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+cnoreabbrev ag Ack!
+"search should not leak to shell
+set shellpipe=>
 
 "Split Settings
 nnoremap <C-J> <C-W><C-J>
