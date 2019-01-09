@@ -103,3 +103,12 @@ unset LSCOLORS
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
 DEFAULT_USER=patrick
+
+# Awakens specific
+connect_staging () {
+  eb ssh feat-new-upload --force
+  sudo su
+  cd /opt/python/current
+  source ./env
+  cd app
+}

@@ -14,12 +14,15 @@ Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript.jsx'] }
 Plug 'mattn/emmet-vim'
 
+"golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 "general
 Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ap/vim-buftabline'
+"Plug 'ap/vim-buftabline'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -29,6 +32,9 @@ Plug 'jiangmiao/auto-pairs'
 "python
 Plug 'davidhalter/jedi-vim'
 Plug 'mindriot101/vim-yapf'
+
+"Distraction free writing
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 "https://github.com/chriskempson/base16-iterm2/blob/master/base16-tomorrownight.dark.itermcolors
@@ -62,17 +68,19 @@ set incsearch
 "set hlsearch
 
 "buftabline settings
-let g:buftabline_indicators = 1 
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprev<CR>
+"let g:buftabline_indicators = 1 
+"nnoremap <Tab> :bnext<CR>
+"nnoremap <S-Tab> :bprev<CR>
 
 "CtrlP settings
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore .git -g ""'
 endif
 let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
+nnoremap <C-b> :CtrlPBuffer<CR>
 
 "ack settings
 if executable('ag')
