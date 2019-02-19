@@ -83,6 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+alias vim="/usr/local/bin/vim"
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -91,6 +92,9 @@ export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+
+# haskell stack
+export PATH=$PATH:/Users/patrick/.local/bin
 
 # use vim as editor
 export EDITOR=vim
@@ -112,3 +116,19 @@ connect_staging () {
   source ./env
   cd app
 }
+
+# $1 = type; 0 - both, 1 - tab, 2 - title
+# rest = text
+setTerminalText () {
+    DISABLE_AUTO_TITLE="true"
+    # echo works in bash & zsh
+    local mode=$1 ; shift
+    echo -ne "\033]$mode;$@\007"
+}
+stt_both  () { setTerminalText 0 $@; }
+stt_tab   () { setTerminalText 1 $@; }
+stt_title () { setTerminalText 2 $@; }
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
