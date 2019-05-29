@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+
 "colors
 Plug 'chriskempson/base16-vim'
 
@@ -6,9 +7,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdtree'
 
 "searching
-Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'nixprime/cpsm', { 'do': 'env PY3=ON ./install.sh' }
-Plug 'mileszs/ack.vim'
+Plug '/usr/local/opt/fzf' "requires homebrew install
+Plug 'junegunn/fzf.vim'
 
 "javascript
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
@@ -18,7 +18,9 @@ Plug 'mattn/emmet-vim'
 
 "golang
 "Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
+"
+"GIT
+Plug 'tpope/vim-fugitive'
 "Syntax checking
 Plug 'w0rp/ale'
 
@@ -37,10 +39,13 @@ Plug 'scrooloose/nerdcommenter'
 
 
 "python
+"Autoformatting
+Plug 'ambv/black'
 "Plug 'davidhalter/jedi-vim'
 "Plug 'mindriot101/vim-yapf'
 
-"Plug 'Valloric/YouCompleteMe'
+"IDE/Autocomplete
+Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 
@@ -74,26 +79,8 @@ set showmatch
 
 set incsearch
 
-"CtrlP settings
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
-"if executable('ag')
-"  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore .git -g ""'
-"endif
-"let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
-"requires brew install fd
-let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
-nnoremap <C-b> :CtrlPBuffer<CR>
-
-"search settings
-"brew install the_silver_searcher
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-cnoreabbrev ag Ack!
-"search should not leak to shell
-set shellpipe=>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-B> :Buffers<CR>
 
 "Split Settings
 nnoremap <C-J> <C-W><C-J>

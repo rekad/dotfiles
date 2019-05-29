@@ -1,0 +1,4 @@
+*.swp
+.prettierrc
+.python-version
+.DS_Store

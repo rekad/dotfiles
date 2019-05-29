@@ -108,14 +108,10 @@ export CLICOLOR=1
 export CLICOLOR_FORCE=1
 DEFAULT_USER=patrick
 
-# Awakens specific
-connect_staging () {
-  eb ssh feat-new-upload --force
-  sudo su
-  cd /opt/python/current
-  source ./env
-  cd app
-}
+# Allow shortcut to edit command in vim
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 # $1 = type; 0 - both, 1 - tab, 2 - title
 # rest = text
@@ -132,3 +128,7 @@ stt_title () { setTerminalText 2 $@; }
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND" 
