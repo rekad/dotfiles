@@ -11,7 +11,10 @@ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 echo "linking vimrc"
 ln -si ~/dotfiles/.vimrc ~/.config/nvim/.init.vim
 
-# Currently not used
+echo "linking gitconfig"
+ln -si ~/dotfiles/.gitconfig ~/.gitconfig
+
+# CURRENTLY UNUSED
 
 # echo "linking vscode settings"
 # ln -si ~/dotfiles/vscode/keybindings.json /Users/patrick/Library/Application\ Support/Code/User/keybindings.json
