@@ -4,7 +4,7 @@ export EDITOR=nvim
 # FZF
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND" 
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND -g='!.Trash' -g='!Library' -g='!.nvm' -g='!.pyenv'" 
 
 # Use vim keybindings
 # this breaks ctrl-r with fzf?
@@ -17,7 +17,6 @@ parse_git_branch() {
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 export PS1="\[\033[33;1m\]\w\[\033[m\] \$(parse_git_branch)\[\033[00m\] "
-alias ls='ls -GFh'
 
 # Initialize pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -34,3 +33,11 @@ export NVM_DIR="$HOME/.nvm"
     [ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ] && \
         . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 }
+
+# locale
+export LC_ALL=en_US.UTF-8
+
+# aliases
+alias notes="cd ~/Dropbox/notes && nvim ."
+alias vim="nvim"
+alias ls='ls -GFh'
