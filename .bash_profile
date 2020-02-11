@@ -41,3 +41,12 @@ export LC_ALL=en_US.UTF-8
 alias notes="cd ~/Dropbox/notes && nvim ."
 alias vim="nvim"
 alias ls='ls -GFh'
+
+# custom scripts
+function set_wallpaper() {
+    sqlite3 qlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '$1'" && killall Dock
+}
+
+function yt-dl() {
+    youtube-dl -i --extract-audio --audio-format mp3 --audio-quality 0 --write-thumbnail -o '/Users/rekad/Music/%(title)s.%(ext)s' $1
+}
