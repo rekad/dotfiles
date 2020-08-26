@@ -1,6 +1,9 @@
 # Editor
 export EDITOR=nvim
 
+# Infinite history
+HISTSIZE=100000
+
 # FZF
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
@@ -50,3 +53,5 @@ function set_wallpaper() {
 function yt-dl() {
     youtube-dl -i --extract-audio --audio-format mp3 --audio-quality 0 --write-thumbnail -o '/Users/rekad/Music/%(title)s.%(ext)s' $1
 }
+
+eval "$(direnv hook bash)"

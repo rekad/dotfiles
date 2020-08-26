@@ -19,8 +19,8 @@ nnoremap <C-p> :Files<CR>
 nnoremap <C-B> :Buffers<CR>
 
 "LINTING
-Plug 'dense-analysis/ale'
-let g:ale_set_highlights=0
+"Plug 'dense-analysis/ale'
+"let g:ale_set_highlights=0
 
 "EDITORCONFIG
 Plug 'editorconfig/editorconfig-vim'
@@ -29,6 +29,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript.jsx', 'javascript'] }
 Plug 'mxw/vim-jsx'
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
 
 "PYTHON need to enable python provider
 "Plug 'ambv/black'
@@ -146,11 +148,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+nmap <F2> <Plug>(coc-rename)
 
 augroup mygroup
   autocmd!
