@@ -1,0 +1,34 @@
+\set QUIET 1
+
+-- clear null value
+\pset null '¤'
+
+-- auto formatting of output
+\x auto
+
+-- set linestyles
+\pset linestyle unicode
+\pset border 2
+
+-- disable pager
+\pset pager off
+
+-- time every query
+\timing
+
+-- configure prompt
+\set PROMPT1 '%M:%> %n@%/%R%#%x '
+
+-- create history file
+-- verbose error reports
+-- \set VERBOSITY verbose
+-- Use a separate history file per-database.
+-- \set HISTFILE ~/.psql_history- :DBNAME
+-- If a command is run more than once in a row, only store it once in the
+-- history.
+-- \set HISTCONTROL ignoredups
+-- Autocomplete keywords (like SELECT) in upper-case, even if you started
+-- typing them in lower case.
+-- \set COMP_KEYWORD_CASE upper
+-- \set HISTFILE ~/.psql_history- :DBNAME
+\unset QUIET

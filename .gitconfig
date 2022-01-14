@@ -1,7 +1,5 @@
-[core]
-	editor = vim
-	excludesfile = ~/.gitignore
 [alias]
-	co = checkout
 	st = status
+	co = checkout
 	br = branch
+	ci = commit
